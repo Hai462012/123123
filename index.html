@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#050707" />
+  <title>DEVHAI Camera Nhận Diện</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body class="camera-page">
+  <header class="topbar">
+    <a class="brand" href="./index.html" aria-label="DEVHAI Home">
+      <span class="brand-mark"></span>
+      <span>DEVHAI</span>
+    </a>
+
+    <div class="topbar-title">DEVHAI CAMERA NHẬN DIỆN</div>
+
+    <a class="admin-link" href="./admin.html">ADMIN</a>
+  </header>
+
+  <main class="camera-shell">
+    <section id="cameraStage" class="camera-stage" aria-label="DEVHAI Face AI camera">
+      <video id="video" autoplay muted playsinline></video>
+      <canvas id="overlay"></canvas>
+
+      <div id="loadingPanel" class="center-panel">
+        <div class="loader"></div>
+        <strong id="loadingTitle">ĐANG TẢI AI MODEL</strong>
+        <span id="loadingText">Vui lòng chờ...</span>
+      </div>
+
+      <div id="errorPanel" class="center-panel error-panel hidden">
+        <div class="error-icon">!</div>
+        <strong id="errorTitle">KHÔNG THỂ MỞ CAMERA</strong>
+        <span id="errorText">Hãy kiểm tra quyền camera của trình duyệt.</span>
+        <button id="retryCameraBtn" class="btn primary" type="button">THỬ LẠI</button>
+      </div>
+
+      <div class="camera-hud hud-top-left">
+        <div class="hud-label">LIVE ANALYTICS</div>
+        <div class="hud-value">
+          <span id="aiDot" class="status-dot"></span>
+          <span id="aiStatus">AI LOADING</span>
+        </div>
+      </div>
+
+      <div class="camera-hud hud-top-right">
+        <div class="hud-label">PERFORMANCE</div>
+        <div class="hud-value"><span id="fpsValue">0</span> FPS</div>
+      </div>
+
+      <div class="camera-signature">
+        <span class="signature-dot"></span>
+        DEVHAI FACE AI
+      </div>
+
+      <div class="camera-controls">
+        <button id="toggleCameraBtn" class="icon-btn" type="button" aria-label="Bật hoặc tắt camera" title="Bật / tắt camera">
+          <span id="cameraButtonText">CAM OFF</span>
+        </button>
+        <button id="fullscreenBtn" class="icon-btn" type="button" aria-label="Toàn màn hình" title="Toàn màn hình">
+          FULLSCREEN
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#050707" />
+  <title>DEVHAI Admin</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body class="admin-page">
+  <header class="topbar">
+    <a class="brand" href="./index.html">
+      <span class="brand-mark"></span>
+      <span>DEVHAI</span>
+    </a>
+
+    <div class="topbar-title">FACE DATABASE ADMIN</div>
+
+    <a class="admin-link" href="./index.html">CAMERA</a>
+  </header>
+
+  <main class="admin-shell">
+    <section class="admin-hero">
+      <div>
+        <div class="eyebrow">DEVHAI FACE AI</div>
+        <h1>Quản lý khuôn mặt</h1>
+        <p>Ảnh được xử lý ngay trên trình duyệt để tạo face descriptor trước khi lưu vào Supabase.</p>
+      </div>
+      <div id="adminModelStatus" class="admin-status">
+        <span class="status-dot"></span>
+        Đang tải AI model...
+      </div>
+    </section>
+
+    <div id="configWarning" class="notice warning hidden">
+      Chưa cấu hình Supabase URL / anon key trong <code>admin.js</code> và <code>app.js</code>.
+    </div>
+
+    <div class="admin-grid">
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <div class="eyebrow">NEW IDENTITY</div>
+            <h2>Thêm người</h2>
+          </div>
+        </div>
+
+        <form id="addFaceForm" class="face-form">
+          <label>
+            <span>Tên</span>
+            <input id="nameInput" type="text" maxlength="80" placeholder="Ví dụ: DevHai" required />
+          </label>
+
+          <label>
+            <span>Tuổi</span>
+            <input id="ageInput" type="number" min="1" max="120" placeholder="14" required />
+          </label>
+
+          <label class="file-drop" for="imageInput">
+            <input id="imageInput" type="file" accept="image/jpeg,image/png,image/webp" required />
+            <span class="file-drop-title">CHỌN ẢNH KHUÔN MẶT</span>
+            <span class="file-drop-note">JPG / PNG / WEBP — nên dùng ảnh rõ, chính diện, chỉ có 1 người</span>
+          </label>
+
+          <div id="previewWrap" class="preview-wrap hidden">
+            <img id="imagePreview" alt="Ảnh xem trước" />
+            <canvas id="previewCanvas"></canvas>
+          </div>
+
+          <div id="formMessage" class="form-message"></div>
+
+          <button id="addFaceBtn" class="btn primary wide" type="submit" disabled>
+            TẠO DESCRIPTOR & LƯU
+          </button>
+        </form>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <div class="eyebrow">DATABASE</div>
+            <h2>Người đã đăng ký</h2>
+          </div>
+          <button id="refreshListBtn" class="btn ghost" type="button">REFRESH</button>
+        </div>
+
+        <div id="faceList" class="face-list">
+          <div class="empty-state">Đang tải dữ liệu...</div>
+        </div>
+      </section>
+    </div>
+
+    <section class="notice security-note">
+      <strong>Lưu ý demo:</strong> nếu bạn cho phép role <code>anon</code> INSERT/DELETE như SQL trong README,
+      bất kỳ ai biết URL trang Admin cũng có thể sửa dữ liệu. Không dùng cấu hình này cho hệ thống thật.
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./admin.js"></script>
+</body>
+</html>
