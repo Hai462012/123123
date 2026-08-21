@@ -5,7 +5,7 @@
    ========================================================= */
 
 const SUPABASE_URL = "YOUR_SUPABASE_URL";
-const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
+const SUPABASE_ANON_KEY = "sb_publishable_6thMjI7oZHyCEBCU4FSKbw_yXro0nwZ";
 
 const MODEL_URL = "./models";
 const STORAGE_BUCKET = "faces";
