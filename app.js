@@ -4,8 +4,8 @@
    Không bao giờ đặt service_role key vào code frontend.
    ========================================================= */
 
-const SUPABASE_URL = "YOUR_SUPABASE_URL";
-const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
+const SUPABASE_URL = "https://zxoisaiycernjzerhaac.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_6thMjI7oZHyCEBCU4FSKbw_yXro0nwZ";
 
 const MODEL_URL = "./models";
 const MATCH_THRESHOLD = 0.55;
